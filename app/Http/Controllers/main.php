@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin;
-
+use Illuminate\Support\Facades\Hash;
 
 class main extends Controller
 {
@@ -47,6 +47,43 @@ class main extends Controller
         return view("admin.dashboard");
     }
 
+    public function cpass(){
+        return view("admin.changepass");
+    }
+
+    public function edit(){
+        return view("admin.editdetails");
+    }
+
+    public function update(Request $req){
+        $user=session('sid');
+        $uid=$user->id;
+        $email = $req->email;
+            $name = $req->name;
+            $phone = $req->phone;
+            $gender = $req->gender;
+            $age = $req->age;
+            $city = $req->city;
+            Admin::where('id', $uid)->update(['name' => $name,'email'=>$email,'age'=>$age,'phone'=>$phone,'city'=>$city,'gender'=>$gender]);
+            return back()->with('success', 'Details Changed Successfully !!');
+
+    }
+
+    public function store(Request $req){
+        $user=session('sid');
+        $uid=$user->id;
+    //changepassword 
+    //user,database
+            if(Hash::check($req->oldpass,$user->password)){
+                $new = Hash::make($req->newpass);
+                Admin::where('id', $uid)->update(['password' => $new]);
+                return back()->with('success', 'Password Changed Successfully !!');
+            }
+            else{
+                return back()->with('error', 'Incorrect Password');
+            }
+        }
+    
 
 
     public function sendposts(Request $req)
@@ -72,7 +109,7 @@ class main extends Controller
         ]);
         if ($validation) {
             $email = $req->email;
-            $password = $req->password;
+            $password=Hash::make( $req->password);
             $name = $req->name;
             $phone = $req->phone;
             $gender = $req->gender;
@@ -128,7 +165,7 @@ class main extends Controller
             if (!$user) {
                 return back()->with('error', "User doesn't exist");
             } else {
-                if ($password == $user->password) {
+                if(Hash::check($password,$user->password)) {
                     $req->session()->put("sid", $user);
                     return view('admin.dashboard');
                 } else {

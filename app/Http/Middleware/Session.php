@@ -15,13 +15,13 @@ class Session
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
-    {
-        $age=34;
-        if($age>32)
-        {
+    public function handle(Request $request, Closure $next){
+        $user=session('sid');
+        if(!empty($user)){
             return $next($request);
         }
-        return response()->json("Access not allowed");
+        else{
+        return response()->json("Not allowed");
     }
-}
+    }
+    }

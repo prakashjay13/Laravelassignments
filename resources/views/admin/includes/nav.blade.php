@@ -13,6 +13,15 @@
       <li class="nav-item mx-2">
         <a class="nav-link" >Welcome: {{$sid->email}}</a>
       </li>
+
+      <li class="nav-item mx-2">
+        <a class="nav-link" href="changepass" >Change Password</a>
+      </li>
+
+      <li class="nav-item mx-2">
+        <a class="nav-link" href="editdetails" >Edit Details </a>
+      </li>
+
     </ul>
     <span class="navbar-text">
     <a class="mx-3" href="logout">Logout</a>

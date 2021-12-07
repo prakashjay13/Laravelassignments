@@ -29,7 +29,15 @@ class Pizza extends Controller
     {
         return view("menu");
     }
+    public function checkout()
+    {
+        return view("checkout");
+    }
 
+    public function logout()
+    {
+        return view('login');
+    }
 
 
 
@@ -91,7 +99,7 @@ class Pizza extends Controller
             } else {
                 if (Hash::check($password, $customer->password)) {
                     $req->session()->put("sid", $customer);
-                    return view('admin.dashboard');
+                    return view("dashboard");
                 } else {
                     return back()->with('error', 'Login error');
                 }

@@ -1,9 +1,9 @@
-<!-- @php 
+@php 
  $sid=session('sid');
 @endphp 
 @if(empty($sid))
   
-@endif  -->
+@endif 
 
 <!doctype html>
 <html lang="en">

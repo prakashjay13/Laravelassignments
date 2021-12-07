@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-    @include('admin.includes.head')
+    @include('include.head')
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login | Yummy Pizzas</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" type="image/icon type">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,7 +15,7 @@
 </head>
 
 <body>
-    @include('admin.includes.nav')
+@include('include.mainnav')
     @if(Session::has('success'))
     <label class="alert alert-success"> {{Session::get('success')}}</label>
     @endif
@@ -72,7 +73,7 @@
         </div>
     </section>
 
-    @include('admin.includes.foot')
+    @include('include.foot')
 </body>
 
 </html>

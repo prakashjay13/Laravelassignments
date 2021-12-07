@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-    @include('admin.includes.head')
+    @include('include.head')
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Signup | Yummy Pizzas</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" type="image/icon type">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,7 +15,7 @@
 </head>
 
 <body>
-    @include('admin.includes.nav')
+@include('include.mainnav')
     @if(Session::has('success'))
     <label class="alert alert-success"> {{Session::get('success')}}</label>
     @endif
@@ -71,10 +72,21 @@
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="text" name="phone" class="form-control" />
-                                                <label class="form-label" for="form3Example3c">Your Phone</label>
-                                                @if($errors->has('phone'))
-                                                <label class="alert alert-danger">{{$errors->first('phone')}}</label>
+                                                <input type="text" name="mobile" class="form-control" />
+                                                <label class="form-label" for="form3Example3c">Your Mobile</label>
+                                                @if($errors->has('mobile'))
+                                                <label class="alert alert-danger">{{$errors->first('mobile')}}</label>
+                                                @endif
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="text" name="address" class="form-control" />
+                                                <label class="form-label" for="form3Example3c">Your Address</label>
+                                                @if($errors->has('address'))
+                                                <label class="alert alert-danger">{{$errors->first('address')}}</label>
                                                 @endif
                                             </div>
                                         </div>
@@ -92,7 +104,7 @@
                                 </div>
                                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                                    <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-registration/draw1.png" class="img-fluid" alt="Sample image">
+                                    <img src="/uploads/reg.jpg" class="img-fluid" alt="Sample image">
 
                                 </div>
                             </div>
@@ -103,7 +115,7 @@
         </div>
     </section>
 
-    @include('admin.includes.foot')
+    @include('include.foot')
 </body>
 
 </html>

@@ -20,9 +20,9 @@
         @include('include.nav')
     </section>
     <section class="container mt-4">
-        <h1>Your Order Has Placed Successfully !!</h1>
+        <h1>Hooray your order has been placed successfully 😁😁!!</h1>
        <div class="alert alert-success mt-4"> You will receive notification by email with order details. </div>
-       <a class="btn btn-dark" href="{{route('DashBoard')}}">Go an order some more </a>
+       <a class="btn btn-dark" href="{{route('DashBoard')}}">Wanna try our other Pizzas??</a>
     </section>
 </body>
 </html>

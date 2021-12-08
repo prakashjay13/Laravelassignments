@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Menu;
 use App\Models\Order;
+use Illuminate\Support\Facades\Mail;
 
 class Operation extends Controller
 {
@@ -85,6 +86,14 @@ class Operation extends Controller
                 $order->save();
             }
             $req->session()->forget('cart');
+            // for sending mail
+
+    $data=['name'=>"Dexter",'data'=>"Hello Dexter"];
+    $user['to']='dextermorgan8879@gmail.com';
+    Mail::send('mail',$data,function($messages) use ($user){
+        $messages->to($user['to']);
+        $messages->subject('Hello Dexter');
+    });
             return view('layout.success'); 
         }
     }

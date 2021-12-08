@@ -20,21 +20,21 @@
         @include('include.nav')
     </section>
     <section class="container mt-4">
-        <h1>Checkout</h1>
+        <h1>Hey User you are just one step away from enjoying a delicious meal!!</h1>
     </section>
     <section class="container mt-4">
         <form action="{{route('PostOrder')}}" method="post">
             @csrf()
             <div class="form-group">
-                <label class="form-label">Credit Card</label>
-                <input type="text" class="form-control" name="ccdetail" placeholder="Credit Card Number e.g. XXXX-XXXX-XXXX-1111"/>
+                <label class="form-label">Enter your Credit Card number</label>
+                <input type="text" class="form-control" name="ccdetail" placeholder="e.g. XXXX-XXXX-XXXX-1234"/>
             </div>
             <div class="form-group">
                 <strong class="text">Total : Rs. {{$total}}</strong>
                 <input type="hidden" value="{{$total}}" name="total"/>
             </div>
             <div>
-            <button class="btn btn-dark p-2" type="submit" name="sub">Checkout  <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></button>
+            <button class="btn btn-success p-2" type="submit" name="sub">Submit</button>
             </div>
         </form>
     </section>

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Menu;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use Illuminate\Support\Facades\Hash;
@@ -9,11 +8,6 @@ use Illuminate\Support\Facades\Hash;
 class Pizza extends Controller
 {
     //
-
-    public function dashboard()
-    {
-        return view("dashboard");
-    }
 
     public function register()
     {
@@ -25,14 +19,6 @@ class Pizza extends Controller
         return view("login");
     }
 
-    public function menu()
-    {
-        return view("menu");
-    }
-    public function checkout()
-    {
-        return view("checkout");
-    }
 
     public function logout()
     {
@@ -115,34 +101,10 @@ class Pizza extends Controller
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public function myProfile(){
+        $details=session('user');
+        return view('layout.myprofile',['details'=>$details]);
+    }
 
 
 }

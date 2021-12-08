@@ -20,7 +20,7 @@
         @include('include.nav')
     </section>
     <section class="container mt-4 ">
-        <h1>Cart</h1>
+        <h1>Your bag of happiness !!!</h1>
     </section>
     <section class="container">
     <table id="cart" class="table table-hover table-condensed">
@@ -55,7 +55,7 @@
                     </td>
                     <td data-th="Subtotal" class="text-center">Rs. {{ $details['price'] * $details['quantity'] }}</td>
                     <td class="actions">
-                        <a class="btn btn-dark btn-sm remove-from-cart" role="button" ><i class="fa fa-trash-o"></i> Delete</a>
+                        <a class="btn btn-danger btn-sm remove-from-cart" role="button" ><i class="fa fa-trash-o"></i> Delete 😢</a>
                     </td>
                 </tr>
             @endforeach
@@ -67,7 +67,7 @@
         </tr>
         <tr>
             <td colspan="5" class="text-right">
-                <a class="btn btn-dark" href="/cart/checkout/{{$total}}">Checkout <i class="fa fa-angle-right"></i></a>
+                <a class="btn btn-success" href="/cart/checkout/{{$total}}">Checkout 😎 <i class="fa fa-angle-right"></i></a>
             </td>
         </tr>
     </tfoot>

@@ -49,7 +49,7 @@
 
             <div class="form-group">
                 <label>Phone:</label>
-                @if($errors->has('city'))
+                @if($errors->has('phone'))
                 <label class="alert alert-danger">{{$errors->first('phone')}}</label>
                 @endif
 
